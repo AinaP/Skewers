@@ -1,0 +1,37 @@
+body
+{
+  background-color: #97cc08;
+
+}
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #337ab7;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#panelp
+{
+ margin-top: 50px;
+  padding: 0.6em;
+  border-radius: 12px;
+	background-color:#d1d1d1;
+
+
+}
+
+.button:hover {background-color: #07c8cc}
+
+.button:active {
+  background-color: #ffffff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

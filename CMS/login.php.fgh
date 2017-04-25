@@ -1,0 +1,95 @@
+<?php
+session_start();
+$mail = htmlspecialchars($_POST['mail']);
+$mdp = htmlspecialchars($_POST['mdp']);
+$errors = Array();
+
+if (!empty($mail) and !empty($mdp))
+{
+	require_once("rsc/require/db.php");
+	$req = $bdd->prepare('SELECT * FROM client WHERE  address_mail_c=?');
+	$req->execute([$mail]);
+	$res = $req->fetch(PDO::FETCH_ASSOC);
+	$req->closeCursor();
+	if($res)
+	{
+		$hash = $res['mp_c'];
+
+		if (password_verify($mdp, $hash))
+		{
+			$_SESSION['prenom'] = $res['prenom_c'];
+			$_SESSION['nom'] = $res['nom_c'];
+			$_SESSION['mail'] = $res['address_mail_c'];
+			$_SESSION['address'] = $res['address'];
+			$_SESSION['ville'] = $res['ville'];
+			$_SESSION['code_postal'] = $res['code_postal'];
+			$_SESSION['id_user'] = $res['id_c'];
+			$_SESSION['userType'] = 1;
+			header('Location: add_form.php');
+
+			exit();
+		}
+		else
+		{
+			$errors['dont_match0'] = "Erreur d'identification0" . '<br /><a href="connect_form.html">Retour</a>';
+		}
+	}
+	else
+	{
+		$req = $bdd->prepare('SELECT * FROM vendeur WHERE  mail=?');
+		$req->execute([$mail]);
+		$res = $req->fetch(PDO::FETCH_ASSOC);
+
+		if ($res)
+		{
+			$hash = $res['password'];
+
+			if(password_verify($mdp, $hash))
+			{
+				$_SESSION['prenom'] = $res['Prenom'];
+				$_SESSION['nom'] = $res['Nom'];
+				$_SESSION['mail'] = $res['mail'];
+				$_SESSION['address'] = $res['address'];
+				$_SESSION['ville'] = $res['ville'];
+				$_SESSION['code_postal'] = $res['code_postal'];
+				$_SESSION['id_user'] = $res['id_v'];
+				$_SESSION['userType'] = 2;
+				header('Location: add_form.php');
+
+				exit();
+			}
+			else
+			{
+				$errors['dont_match1'] = "Erreur d'identification1" . '<br /><a href="connect_form.html">Retour</a>';
+			}
+		}
+		else
+		{
+			$errors['dont_match2'] = "Erreur d'identification2" . '<br /><a href="connect_form.html">Retour</a>';
+		}
+
+	}
+
+
+
+}
+else
+{
+	$errors['empty'] = "Au moins un des deux champs est vide" . '<br /><a href="connect_form.html">Retour</a>';
+}
+
+if ($errors)
+	{
+		foreach($errors as $num_errors)
+		{
+				echo $num_errors . '<br />';
+		}
+	}
+
+
+
+
+
+
+
+?>

@@ -1,0 +1,28 @@
+#searchbar
+{
+  position:relative; width:1040px;
+  height:auto;
+  margin-top: 227px;
+  margin-left: 167px;
+}
+
+.formulaire
+{display:inline-block;}
+
+.formulaire .champ
+{
+width:600px;
+height:35px;
+}
+
+
+
+#search
+{
+background-image: url("../images/default/search.png");
+background-repeat:no-repeat;
+background-size: cover;
+width: 35px;
+height: 35px;padding: 0;
+
+}

@@ -1,0 +1,7 @@
+Options -Indexes
+
+DirectoryIndex catalog.php
+RewriteEngine On
+
+RewriteRule ^allproducts$ catalog.php [L]
+RewriteRule ^detail$ product_detail.php [L]

@@ -1,0 +1,8 @@
+Options -Indexes
+
+RewriteEngine On
+RewriteRule ^my-account$ login.php [L]
+RewriteRule ^home$ index.php [L]
+RewriteRule ^new-user$ signup.php [L]
+RewriteRule ^disconnect$ logout.php [L]
+RewriteRule ^profil/me$ profil/profil.php [L]

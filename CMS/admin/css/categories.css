@@ -1,0 +1,11 @@
+table th,table td
+{
+border: solid 1px;
+border-spacing: 42px;
+padding: 0.4em;
+
+}
+th
+{
+  background-color: grey;
+}

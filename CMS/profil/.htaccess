@@ -1,0 +1,7 @@
+Options -Indexes
+DirectoryIndex profil.php
+
+RewriteEngine On
+
+RewriteRule ^me$ profil.php [L]
+RewriteRule ^mycart$ panier.php [L]

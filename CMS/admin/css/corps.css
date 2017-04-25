@@ -1,0 +1,81 @@
+#corps
+{
+  display: flex;
+  position: fixed;
+  top:100px;
+  z-index: -1;
+}
+
+#side
+{
+top:100px;
+  position: fixed;
+  width:200px;
+  background-color: #434A54;
+  color:white;
+  font-size: 20px;
+ padding-left: 4px;
+}
+
+
+#side ul
+{
+  list-style-type: none;
+  margin: 0px;
+  padding:0px;
+
+}
+
+#main
+{
+background-color: white;
+margin-left: 200px;
+overflow: auto;
+}
+
+
+#myshop
+{
+margin-top: 10px;
+}
+
+.side-items
+{
+
+  border-bottom: 1px white solid;
+
+}
+
+
+.btn-side
+{
+  padding: 0.4em;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn-side div:hover, #dash_menu ul li:hover ,#catalog_menu ul li:hover,#client_menu ul li:hover
+{
+    background-color: #113261 ;
+}
+
+#dash_menu,#catalog_menu,#client_menu
+{
+  display: none;
+}
+
+#dash_menu ul li ,#catalog_menu ul li ,#client_menu ul li
+{
+  border-bottom: solid #6d6767 1px;
+
+
+}
+
+#dash_menu ul li a,#catalog_menu ul li a,#client_menu ul li a
+{
+  cursor:pointer;
+ padding:0.4em;
+ text-decoration: none;
+ color:white;
+ font-size:18px;
+}

@@ -1,0 +1,15 @@
+DirectoryIndex  admin.php
+Options -Indexes
+#Options +FollowSymlinks
+RewriteEngine On
+
+
+#RewriteRule ^dashboard$ admin.php [L]
+
+#RewriteRule ^/mydashboard/search?error=404$ seller.php?action=search&e=404
+#RewriteRule ^/mydashboard/search?error=403$ seller.php?action=search&e=403
+
+
+#ErrorDocument 403 /error?e=403/
+#ErrorDocument 404 /CMS/seller/seller.php?action=search
+#ErrorDocument 500
